@@ -23,7 +23,7 @@
         <div>
             <h1>Winston Ye</h1><h1 id='blink'>_</h1>
         </div>
-            <h2>I am a computer science student, coding instructor, and tech enthusiast.</h2>
+            <h2>I am a computer science student, web-focused software developer, and tech enthusiast.</h2>
             <a href="https://drive.google.com/file/d/1jaMgqe-OJzVnvnVftlCkzCd3TvA7lDtS/view?usp=sharing">Resume</a>
     </div>
         
@@ -32,33 +32,35 @@
             <h1>These are projects I have worked on.</h1>
             
             <div class="div-projects-holder" >
-    
-                <a href="https://sfu.ca/~winstony/bedtime/index.html" id='bedtime'>
-                    <div class="div-project-container">
+                <a href="https://sfu.ca/~winstony/bedtime/index.html" id='bedtime' class="div-project-container">
+                    <div>
                         <div class="div-project">b</div>
                         <h2>bedtime</h2>
                     </div>
                 </a>
                 
-                <a href="https://sfu.ca/~winstony/coverlist/coverlist.html" id='coverlist'>
-                    <div class="div-project-container">
+                <a href="https://sfu.ca/~winstony/coverlist/coverlist.html" id='coverlist' class="div-project-container">
+                    <div>
                         <div class="div-project">c</div>
-                    <h2>coverlist</h2></div>
+                        <h2>coverlist</h2>
+                    </div>
                 </a>
                 
-                <a href="https://github.com/trtri2/FirstBite" id='firstbite'>
-                    <div class="div-project-container">
+                <a href="https://github.com/trtri2/FirstBite" id='firstbite' class="div-project-container">
+                    <div>
                         <div class="div-project">f</div>
-                    <h2>FirstBite</h2>
-                </div></a>
+                        <h2>FirstBite</h2>
+                    </div>
+                </a>
 
-                <a href="https://github.com/le-rich/Bizhacks2019-VisualEyes" id='visualeyes'>
-                    <div class="div-project-container">
+                <a href="https://github.com/le-rich/Bizhacks2019-VisualEyes" id='visualeyes' class="div-project-container">
+                    <div>
                         <div class="div-project">v</div>
-                    <h2>VisualEyes</h2>
-                </div></a>
-                
+                        <h2>VisualEyes</h2>
+                    </div>
+                </a>
             </div>
+
         </div>
     </div>
 
@@ -70,8 +72,8 @@
             </a>
             
             <div class="div-projects-holder">
-                <a id='linkedin' href="https://www.linkedin.com/in/winston-ye">
-                    <div class="div-project-container">
+                <a href="https://www.linkedin.com/in/winston-ye" id='linkedin' class="div-project-container">
+                    <div>
                         <div class="div-project">
                             <img src="img/linked.png">
                         </div>
@@ -79,8 +81,8 @@
                     </div>
                 </a>
                 
-                <a id='github' href="https://github.com/yewinston">
-                    <div class="div-project-container">
+                <a href="https://github.com/yewinston" id='github'class="div-project-container">
+                    <div>
                         <div class="div-project">
                             <img src="img/github.png">
                         </div>
@@ -88,8 +90,8 @@
                     </div>
                 </a>
                 
-                <a id='instagram' href="https://www.instagram.com/winstonye/">
-                    <div class="div-project-container">
+                <a href="https://www.instagram.com/winstonye/" id='instagram' class="div-project-container">
+                    <div>
                         <div class="div-project">
                             <img src="img/ig.png">
                         </div>
@@ -97,78 +99,44 @@
                     </div>
                 </a>
             </div>
+            
         </div>
     </div>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <script src="js/jquery.scrollify.js"></script>
     
     <script>
         let contextBubble = document.getElementById('contextBubble'),
             content = document.getElementById('contextBubbleContent');
 
-        let navItems = document.querySelectorAll(".navitem");
-
-        let bedtime = document.getElementById('bedtime'),
-            coverlist = document.getElementById('coverlist'),
-            firstbite = document.getElementById('firstbite'),
-            visualeyes = document.getElementById('visualeyes'),
-            email = document.getElementById('contactme'),
-            linkedin = document.getElementById('linkedin'),
-            github = document.getElementById('github'),
-            instagram = document.getElementById('instagram');
-
-        // Project Mouse Enter
-        bedtime.onmouseover = function(){
-            content.innerHTML = 'Bedtime is a JavaScript project that calculates the best time to sleep.';
-            contextBubble.style.visibility = 'visible';
+        const navItems = document.querySelectorAll('.navitem');
+        
+        const bubbleContent = {
+            "bedtime": "Bedtime is a JavaScript project that calculates the best time to sleep.",
+            "coverlist": "coverlist is a JavaScript project that allows a user to make nested YouTube playlists.",
+            "firstbite": "FirstBite is an iOS application created in SFU's CMPT 276 course with a group of 5. It was made to aid new parents with their newborn's nutrition.",
+            "visualeyes": "VisualEyes is an Android/iOS (Unity) image recognition application created within 24 hours at the BizHacks 2019 Hackathon. Overall 2nd place prize.",
+            "email": "Click to send me an email!",
+            "linkedin": "Connect and chat with me on LinkedIn!",
+            "github": "Check out my projects and contributions on GitHub!",
+            "instagram": "Have a chat with me on Instagram!"
         }
 
-        coverlist.onmouseover = function(){
-            content.innerHTML = 'coverlist is a JavaScript project that allows a user to make nested YouTube playlists.';
-            contextBubble.style.visibility = 'visible';
+        const sectionColors = {
+            "intro": "#4c5b6b",
+            "projects": "#927a66",
+            "contact": "#242424"
         }
 
-        firstbite.onmouseover = function(){
-            content.innerHTML = "FirstBite is an iOS application created in SFU's CMPT 276 course with a group of 5. It was made to aid new parents with their newborn's nutrition.";
-            contextBubble.style.visibility = 'visible';
-        }
-
-        visualeyes.onmouseover = function(){
-            content.innerHTML = 'VisualEyes is an Android/iOS (Unity) image recognition application created within 24 hours at the BizHacks 2019 Hackathon. Overall 2nd place prize.';
-            contextBubble.style.visibility = 'visible';
-        }
-
-        email.onmouseover = function(){
-            content.innerHTML = 'Click to send me an email!';
-            contextBubble.style.visibility = 'visible';
-        }
-
-        linkedin.onmouseover = function(){
-            content.innerHTML = 'Connect and chat with me on LinkedIn!';
-            contextBubble.style.visibility = 'visible';
-        }
-
-        github.onmouseover = function(){
-            content.innerHTML = 'Check out my projects and contributions on GitHub!';
-            contextBubble.style.visibility = 'visible';
-        }
-
-        instagram.onmouseover = function(){
-            content.innerHTML = 'Have a chat with me on Instagram!';
-            contextBubble.style.visibility = 'visible';
-        }
-
-        // Project Mouse Leave
-        email.onmouseleave = function(){
-            contextBubble.style.visibility = 'hidden';
-        }
-
-        document.querySelectorAll(".div-project-container").forEach(function(project){
+        document.querySelectorAll('.div-project-container').forEach(function(project){
             project.addEventListener('mouseleave', function(){
                 contextBubble.style.visibility = 'hidden';
+            });
+
+            project.addEventListener('mouseover', function(){
+                contextBubble.style.visibility = 'visible';
+                content.innerHTML = bubbleContent[project.id];
             })
         });
 
@@ -180,17 +148,7 @@
             before:function(){
                 let currentSection = $.scrollify.current(),
                     currentSectionID = currentSection[0].id,
-                    navBarColor = "#4c5b6b"; // default value
-
-                if(currentSectionID == "intro"){
-                    navBarColor = "#4c5b6b";
-                }
-                else if(currentSectionID == "projects"){
-                    navBarColor = "#927a66";
-                }
-                else if(currentSectionID == "contact"){
-                    navBarColor = "#242424";
-                }
+                    navBarColor = sectionColors[currentSectionID] != undefined ? sectionColors[currentSectionID] : "#4c5b6b";
 
                 navItems.forEach(function(navitem){
                     navitem.style.backgroundColor = navBarColor;
@@ -202,7 +160,6 @@
         document.getElementById('nav-me').onclick = function(){$.scrollify.move("#1");};
         document.getElementById('nav-projects').onclick = function(){$.scrollify.move("#2");};
         document.getElementById('nav-contact').onclick = function(){$.scrollify.move("#3");};
-
     </script>
 
 </body>
