@@ -6,8 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100|Thasadith&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-    
+
+<body>    
     <div id='nav' class="navbar">
         <a id='nav-me' class="navitem"><p>Me</p></a>
         <a id='nav-projects' class="navitem"><p>Projects</p></a>
@@ -81,7 +81,7 @@
                     </div>
                 </a>
                 
-                <a href="https://github.com/yewinston" id='github'class="div-project-container">
+                <a href="https://github.com/yewinston" id='github' class="div-project-container">
                     <div>
                         <div class="div-project">
                             <img src="img/github.png">
@@ -135,8 +135,8 @@
             });
 
             project.addEventListener('mouseover', function(){
-                contextBubble.style.visibility = 'visible';
                 content.innerHTML = bubbleContent[project.id];
+                contextBubble.style.visibility = 'visible';
             })
         });
 
@@ -148,10 +148,10 @@
             before:function(){
                 let currentSection = $.scrollify.current(),
                     currentSectionID = currentSection[0].id,
-                    navBarColor = sectionColors[currentSectionID] != undefined ? sectionColors[currentSectionID] : "#4c5b6b";
+                    navBarColour = sectionColors[currentSectionID] != undefined ? sectionColors[currentSectionID] : "#4c5b6b";
 
-                navItems.forEach(function(navitem){
-                    navitem.style.backgroundColor = navBarColor;
+                navItems.forEach(function(navItem){
+                    navItem.style.backgroundColor = navBarColour;
                 });
             }
           });
