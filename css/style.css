@@ -164,6 +164,13 @@
     flex-direction: column;
 }
 
+.div-projects-holder > a > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .div-project-container > div > h2{
     margin: 12px;
     color: white;

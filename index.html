@@ -36,12 +36,13 @@
             <h1>These are projects I have worked on.</h1>
             
             <div class="div-projects-holder" >
-                <a href="https://sfu.ca/~winstony/bedtime/index.html" id='bedtime' class="div-project-container">
+                <!-- TODO: fix bedtime -->
+                <!-- <a href="https://sfu.ca/~winstony/bedtime/index.html" id='bedtime' class="div-project-container">
                     <div>
                         <div class="div-project">b</div>
                         <h2>bedtime</h2>
                     </div>
-                </a>
+                </a> -->
                 
                 <a href="https://sfu.ca/~winstony/coverlist/coverlist.html" id='coverlist' class="div-project-container">
                     <div>
@@ -54,6 +55,13 @@
                     <div>
                         <div class="div-project">f</div>
                         <h2>FirstBite</h2>
+                    </div>
+                </a>
+
+                <a href="https://github.com/yewinston/Pure-MCTS-Reversi" id='reversi' class="div-project-container">
+                    <div>
+                        <div class="div-project">r</div>
+                        <h2>Pure MCTS Reversi</h2>
                     </div>
                 </a>
 
@@ -117,10 +125,14 @@
         const navItems = document.querySelectorAll('.navitem');
         
         const bubbleContent = {
+            // Projects
             "bedtime": "Bedtime is a JavaScript project that calculates the best time to sleep.",
             "coverlist": "coverlist is a JavaScript project that allows a user to make nested YouTube playlists.",
             "firstbite": "FirstBite is an iOS application created in SFU's CMPT 276 course with a group of 5. It was made to aid new parents with their newborn's nutrition.",
+            "reversi": "A Reversi AI built in C++ that utilizes a pure Monte-Carlo tree search (heuristic search algorithm) to determine the next possible move.",
             "visualeyes": "VisualEyes is an Android/iOS (Unity) image recognition application created within 24 hours at the BizHacks 2019 Hackathon. Overall 2nd place prize.",
+
+            // Contact
             "email": "Click to send me an email!",
             "linkedin": "Connect and chat with me on LinkedIn!",
             "github": "Check out my projects and contributions on GitHub!",
