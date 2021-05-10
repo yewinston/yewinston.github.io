@@ -71,14 +71,8 @@
 }
 
 .navitem:hover {
-    border-top-color: #7ac7c4;
     cursor: pointer;
-    -webkit-transition: border-top-color 0.1s ease-in-out;
-    -moz-transition: border-top-color 0.1s ease-in-out;
-    -o-transition: border-top-color 0.1s ease-in-out;
-    transition: border-top-color 0.1s ease-in-out;
 }
-
 /* navbar end */
 
 /* intro */

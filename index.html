@@ -14,7 +14,7 @@
 
 <body>    
     <div id='nav' class="navbar">
-        <a id='nav-me' class="navitem"><p>Me</p></a>
+        <a id='nav-intro' class="navitem"><p>Me</p></a>
         <a id='nav-projects' class="navitem"><p>Projects</p></a>
         <a id='nav-contact' class="navitem"><p>Contact</p></a>
         <a class="navitem" href="https://drive.google.com/file/d/1qPOD07ckKBTRmXdRg65a3inccyiEhksa/view?usp=sharing"><p>Resume</p></a>
@@ -134,6 +134,8 @@
     <script src="js/jquery.scrollify.js"></script>
     
     <script>
+        const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+
         let contextBubble = document.getElementById('contextBubble'),
             content = document.getElementById('contextBubbleContent');
 
@@ -156,10 +158,16 @@
             "instagram": "Have a chat with me on Instagram!"
         }
 
-        const sectionColors = {
+        const sectionColours = {
             "intro": "#4c5b6b",
             "projects": "#927a66",
             "contact": "#242424"
+        }
+
+        const navColours = {
+            "inactive": "#fff",
+            "active": "#ed7440",
+            "hover": "#7ac7c4"
         }
 
         document.querySelectorAll('.div-project-container').forEach(function(project){
@@ -173,6 +181,32 @@
             })
         });
 
+        // Navigation item top border colour change via mouse events
+        navItems.forEach((navItem, i) => {
+            navItem.onmouseover = () => {
+                navItem.style.transition = "border-top-color 0.1s ease-in-out";
+                let rgbColor = rgb2hex(navItem.style.borderTopColor);
+                if(rgbColor !== navColours.active){
+                    navItem.style.borderTopColor = navColours.hover;
+                }
+            }
+
+            navItem.onmouseleave = () => {
+                if(navItem.style.borderTopColor !== ""){
+                    let rgbColor = rgb2hex(navItem.style.borderTopColor);
+                    if(rgbColor !== navColours.active){
+                        navItem.style.borderTopColor = navColours.inactive;
+                    }
+                }
+            }
+
+            navItem.onclick = () => {
+                let section = "#" + (i+1);
+                $.scrollify.move(section);
+                navItem.style.borderTopColor = navColours.active;
+            }
+        });
+
         // Scrollify
         $(function() {
           $.scrollify({
@@ -181,18 +215,20 @@
             before:function(){
                 let currentSection = $.scrollify.current(),
                     currentSectionID = currentSection[0].id,
-                    navBarColour = sectionColors[currentSectionID] != undefined ? sectionColors[currentSectionID] : "#4c5b6b";
+                    navBarColour = sectionColours[currentSectionID] != undefined ? sectionColours[currentSectionID] : sectionColours.intro;
 
                 navItems.forEach(function(navItem){
                     navItem.style.backgroundColor = navBarColour;
+                    if(navItem.id.includes(currentSectionID.toLowerCase())){
+                        navItem.style.borderTopColor = navColours.active;
+                    }
+                    else{
+                        navItem.style.borderTopColor = navColours.inactive;
+                    }
                 });
             }
           });
         });
-
-        document.getElementById('nav-me').onclick = function(){$.scrollify.move("#1");};
-        document.getElementById('nav-projects').onclick = function(){$.scrollify.move("#2");};
-        document.getElementById('nav-contact').onclick = function(){$.scrollify.move("#3");};
     </script>
 
 </body>
