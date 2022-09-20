@@ -293,17 +293,17 @@ body {
         box-shadow: none;
     }
 
-    .div-project {
+    .noImg {
         display: none;
     }
 
-    .div-project-container {
+    .button {
         padding: 8px;
         width: 140px;
-        background-color: #4c5b6b;
+        background-color: #927a66;
         border-radius: 10px;
-        margin-top: 10px;
-        padding: 12px;
+        margin-top: 8px;
+        margin-bottom: 8px;
         opacity: 0.85;
     }
 
