@@ -17,7 +17,6 @@
         <a id='nav-intro' class="navitem"><p>Me</p></a>
         <a id='nav-projects' class="navitem"><p>Projects</p></a>
         <a id='nav-contact' class="navitem"><p>Contact</p></a>
-        <a class="navitem" href="https://drive.google.com/file/d/1qPOD07ckKBTRmXdRg65a3inccyiEhksa/view?usp=sharing"><p>Resume</p></a>
     </div>
 
     <hgroup class='speech-bubble' id='contextBubble'>
@@ -28,23 +27,11 @@
         <div>
             <h1>Winston Ye</h1><h1 id='blink'>_</h1>
         </div>
-            <h2>I am a computer science student, web-focused software developer, and tech enthusiast.</h2>
-            <a href="https://drive.google.com/file/d/1qPOD07ckKBTRmXdRg65a3inccyiEhksa/view?usp=sharing">Resume</a>
     </div>
         
     <div id="projects" class="projects parallax" name="projects">
-        <div id="myProjects">
-            <h1>These are projects I have worked on.</h1>
-            
-            <div class="div-projects-holder" >
-                <!-- TODO: fix bedtime -->
-                <!-- <a href="https://sfu.ca/~winstony/bedtime/index.html" id='bedtime' class="div-project-container">
-                    <div>
-                        <div class="div-project">b</div>
-                        <h2>bedtime</h2>
-                    </div>
-                </a> -->
-                
+        <div id="myProjects"> 
+            <div class="div-projects-holder" >                
                 <a href="https://sfu.ca/~winstony/coverlist/coverlist.html" id='coverlist' class="div-project-container">
                     <div>
                         <div class="div-project">c</div>
@@ -92,40 +79,42 @@
     </div>
 
     <div id="contact" class="contact parallax" name="contact">
-        <div id='contactBG'>
-            <h1>Let's talk!</h1>
-            <a id="contactme" href="mailto:winstony@sfu.ca">
-                <h2 style="font-size: 22px;" id="intro-text">You can contact me at winstony@sfu.ca</h2>
-            </a>
-            
+        <div id='contactBG'>            
             <div class="div-projects-holder">
-                <a href="https://www.linkedin.com/in/winston-ye" id='linkedin' class="div-project-container">
+                <a href="https://www.linkedin.com/in/winston-ye" id='linkedin' class="noBubble div-project-container">
                     <div>
                         <div class="div-project">
                             <img src="img/linked.png">
                         </div>
-                        <h2>LinkedIn</h2>
                     </div>
                 </a>
                 
-                <a href="https://github.com/yewinston" id='github' class="div-project-container">
+                <a href="https://github.com/yewinston" id='github' class="noBubble div-project-container">
                     <div>
                         <div class="div-project">
                             <img src="img/github.png">
                         </div>
-                        <h2>GitHub</h2>
                     </div>
                 </a>
                 
-                <a href="https://www.instagram.com/winstonye/" id='instagram' class="div-project-container">
+                <a href="https://www.instagram.com/winstonye/" id='instagram' class="noBubble div-project-container">
                     <div>
                         <div class="div-project">
                             <img src="img/ig.png">
                         </div>
-                        <h2>Instagram</h2>
+                    </div>
+                </a>
+
+                <a href="mailto:winstony@sfu.ca" id='email' class="noBubble div-project-container">
+                    <div>
+                        <div class="div-project">
+                            <img src="img/email.svg">
+                        </div>
                     </div>
                 </a>
             </div>
+
+
             
         </div>
     </div>
@@ -150,12 +139,6 @@
             "reversi": "A Reversi AI built in C++ that utilizes a pure Monte-Carlo tree search (heuristic search algorithm) to determine the next possible move.",
             "shoppies": "The Shoppies is a React.js application that allows you to search and nominate your favourite movies.",
             "visualeyes": "VisualEyes is an Android/iOS (Unity) image recognition application created within 24 hours at the BizHacks 2019 Hackathon. Overall 2nd place prize.",
-
-            // Contact
-            "email": "Click to send me an email!",
-            "linkedin": "Connect and chat with me on LinkedIn!",
-            "github": "Check out my projects and contributions on GitHub!",
-            "instagram": "Have a chat with me on Instagram!"
         }
 
         const sectionColours = {
@@ -170,15 +153,17 @@
             "hover": "#7ac7c4"
         }
 
-        document.querySelectorAll('.div-project-container').forEach(function(project){
-            project.addEventListener('mouseleave', function(){
-                contextBubble.style.visibility = 'hidden';
-            });
+        document.querySelectorAll('.div-project-container').forEach((project) => {
+            if(project.classList[0] === 'div-project-container') {
+                project.addEventListener('mouseleave', function() {
+                    contextBubble.style.visibility = 'hidden';
+                });
 
-            project.addEventListener('mouseover', function(){
-                content.innerHTML = bubbleContent[project.id];
-                contextBubble.style.visibility = 'visible';
-            })
+                project.addEventListener('mouseover', function() {
+                    content.innerHTML = bubbleContent[project.id];
+                    contextBubble.style.visibility = 'visible';
+                })
+            }
         });
 
         // Navigation item top border colour change via mouse events

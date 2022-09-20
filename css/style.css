@@ -54,7 +54,7 @@
 }
 
 .navitem {
-    width: 25%;
+    width: 33.334%;
     text-align: center;
     background-color: #4c5b6b;
     border-top-style: solid;
@@ -269,7 +269,7 @@ body {
     }
 
     .navitem {
-        width: 25%;
+        width: 33.334%;
         text-align: center;
         border-top-style: solid;
         border-top-color: #ffffff;
